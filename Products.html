@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Table</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/colors1.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+  <style>
+    .table th,
+    .table td {
+      vertical-align: middle;
+    }
+
+    .product-name {
+      font-weight: bold;
+    }
+
+    .product-info {
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .combo-offer {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    .rating {
+      color: #ffc107;
+    }
+
+    .select-btn {
+      background-color: #ffc107;
+      color: #fff;
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+    }
+
+    .select-btn:hover {
+      background-color: #e0a800;
+    }
+
+    .table tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    .compare-checkbox {
+      margin-left: 1em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .slide-form {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 800px;
+      height: 100%;
+      background-color: #ffffff;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+      transition: right 0.3s ease-in-out;
+      padding: 20px;
+      overflow-y: scroll;
+        z-index: 999;
+    }
+
+    .slide-form.active {
+      right: 0;
+    }
+
+    @media(max-width : 478px) {
+      .slide-form {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 200px;
+        height: 100%;
+        background-color: #ffffff;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease-in-out;
+        padding: 20px;
+        overflow-y: scroll;
+      }
+    }
+
+    .payment-options {
+      display: flex;
+      align-items: center;
+    }
+
+    .payment-options img {
+      margin: 0 50px;
+      width: 80px;
+      height: auto;
+    }
+
+    .table-bordered img{
+      width: 93px;
+      height: 61px;
+      
+    }
+  </style>
+</head>
+
+<body>
+      <div class="header_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo">
+                        <a href="it_home.html">
+                            <img src="lanka.png" alt="logo" />
+                        </a>
+                    </div>
+                </div>
+                <div class="menu_side">
+                    <div id="navbar_menu">
+                        <ul class="first-ul">
+                            <li><a class="active" href="it_home.html">Home</a></li>
+                            <li><a href="it_about.html">About Us</a></li>
+                            <li><a href="it_buildpc.html">Build Your PC</a></li>
+                            <li><a href="it_products.html">Products</a></li>
+                            <li><a href="it_laptops.html">Laptops</a></li>
+                            <li><a href="it_contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="hm-minicart">
+                        <a href="it_cart.html" class="hm-minicart-trigger">
+                            <span class="item-icon">
+                                <i class="fa fa-shopping-cart"></i>
+                            </span>
+                            <span class="item-text">
+                                Cart <span class="cart-item-count">3</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="mt-5">
+    <table class="table table-bordered" id="cpu_table">
+      <thead>
+        <tr>
+          <th>Product (CPU)</th>
+          <th>of Cores</th>
+          <th>Core Clock</th>
+          <th>Memory</th>
+          <th>TDP</th>
+          <th>Integrated Graphics</th>
+          <th>Rating</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="./Assets//Table images/cpu1.jpg" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">
+                  AMD Ryzen 7 7800X3D Desktop Processor
+                </div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 69000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">8-Core</td>
+          <td class="text-center">4.2 GHz</td>
+          <td class="text-center">DDR5 5200</td>
+          <td class="text-center">120W</td>
+          <td class="text-center">AMD Radeon Graphics</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 78000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="1" data-product="AMD Ryzen 7 7800X3D Desktop Processor"
+              data-price=" 78000" value="+ SELECT" />
+          </td>
+        </tr>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="./Assets/Table images/cpu2.jpg" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">
+                  AMD Ryzen 9 9000X3D Desktop Processor
+                </div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 74000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">8-Core</td>
+          <td class="text-center">4.2 GHz</td>
+          <td class="text-center">DDR5 5200</td>
+          <td class="text-center">120W</td>
+          <td class="text-center">AMD Radeon Graphics</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 87000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="2" data-product="AMD Ryzen 9 9000X3D Desktop Processor"
+              data-price=" 87000" value="+ SELECT" />
+          </td>
+        </tr>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="./Assets/Table images/cpu3-removebg-preview.png" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">
+                  Intel Core i7-14700K Desktop Processor
+                </div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 69000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">8-Core</td>
+          <td class="text-center">4.2 GHz</td>
+          <td class="text-center">DDR5 5200</td>
+          <td class="text-center">120W</td>
+          <td class="text-center">Intel UHD Graphics 770</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 178000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="3" data-product="Intel Core i7-14700K Desktop Processor"
+              data-price=" 178000" value="+ SELECT" />
+          </td>
+        </tr>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="./Assets//Table images/cpu4-removebg-preview.png" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">
+                  Intel Core i9-14900K Desktop Processor
+                </div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 69000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">8-Core</td>
+          <td class="text-center">4.2 GHz</td>
+          <td class="text-center">DDR5 5200</td>
+          <td class="text-center">120W</td>
+          <td class="text-center">Intel UHD Graphics 770</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 148000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="4" data-product="Intel Core i9-14900K Desktop Processor"
+              data-price=" 148000" value="+ SELECT" />
+          </td>
+        </tr>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="./Assets//Table images/cpu5-removebg-preview.png" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">AMD Ryzen 5 7600 Processor</div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 69000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">8-Core</td>
+          <td class="text-center">4.2 GHz</td>
+          <td class="text-center">DDR5 5200</td>
+          <td class="text-center">120W</td>
+          <td class="text-center">AMD Radeon Graphics</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 58000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="5" data-product="AMD Ryzen 5 7600 Processor"
+              data-price=" 58000" value="+ SELECT" />
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+  <div class="mt-5">
+    <table class="table table-bordered" id="mb_table">
+      <thead>
+        <tr>
+          <th>Product (MotherBoard)</th>
+          <th>Socket / CPU</th>
+          <th>Form Factor</th>
+          <th>Memory Max</th>
+          <th>Memory Slots</th>
+          <th>Chipset</th>
+          <th>Rating</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="./Assets/Table images/mb1.jpg" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">
+                  ASRock B650M Pro RS WiFi Micro ATX Motherboard
+                </div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 69000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">AM5</td>
+          <td class="text-center">Micro ATX</td>
+          <td class="text-center">128 GB</td>
+          <td class="text-center">4x288pin (DDR5)</td>
+          <td class="text-center">AMD B650</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 165000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="1"
+              data-product="ASRock B650M Pro RS WiFi Micro ATX Motherboard" data-price=" 165000" value="+ SELECT" />
+          </td>
+        </tr>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="./Assets/Table images/mb2.jpg" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">
+                  MSI B650 GAMING PLUS WIFI AM5 AMD B650 SATA 6Gb/s ATX
+                  Motherboard
+                </div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 69000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">AM5</td>
+          <td class="text-center">Micro ATX</td>
+          <td class="text-center">192 GB</td>
+          <td class="text-center">4x288pin (DDR5)</td>
+          <td class="text-center">AMD B650</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 140000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="2"
+              data-product="MSI B650 GAMING PLUS WIFI AM5 AMD B650 SATA 6Gb/s ATX Motherboard" data-price=" 140000"
+              value="+ SELECT" />
+          </td>
+        </tr>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="./Assets/Table images/mb3.png" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">
+                  ASUS ROG STRIX B650-A GAMING WIFI 6E Socket AM5
+                </div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 69000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">AM5</td>
+          <td class="text-center">Micro ATX</td>
+          <td class="text-center">228 GB</td>
+          <td class="text-center">4x288pin (DDR5)</td>
+          <td class="text-center">AMD B650</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 138000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="3"
+              data-product="ASUS ROG STRIX B650-A GAMING WIFI 6E Socket AM5" data-price=" 138000" value="+ SELECT" />
+          </td>
+        </tr>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="Assets\Table images\mb4.jpg" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">
+                  GIGABYTE B650 AORUS ELITE AX V2 AM5 LGA 1718 AMD B650 ATX
+                  Motherboard with 5-Year Warranty, DDR5, Triple M.2, PCIe
+                  5.0, USB 3.2
+                </div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 69000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">AM5</td>
+          <td class="text-center">Micro ATX</td>
+          <td class="text-center">248 GB</td>
+          <td class="text-center">4x288pin (DDR5)</td>
+          <td class="text-center">AMD B650</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 88000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="4"
+              data-product="GIGABYTE B650 AORUS ELITE AX V2 AM5 LGA 1718 AMD B650 ATX Motherboard" data-price=" 88000"
+              value="+ SELECT" />
+          </td>
+        </tr>
+        <tr class="component-card">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="Assets\Table images\mb5.png" alt="Product Image" class="mr-3" />
+              <div>
+                <div class="product-name">
+                  MSI PRO B650-S WIFI AM5 AMD B650 Ryzen 7000 DDR5 PCI-E x16
+                  slot Wi-Fi 6E Bluetooth SATA 6Gb/s ATX
+                </div>
+                <div class="product-info">
+                  42,581 customers adding this component to the build list.
+                </div>
+                <div class="combo-offer">
+                  Combo Up Savings up to 69000
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">AM5</td>
+          <td class="text-center">Micro ATX</td>
+          <td class="text-center">248 GB</td>
+          <td class="text-center">4x288pin (DDR5)</td>
+          <td class="text-center">AMD B650</td>
+          <td class="text-center rating">★★★★★ (566)</td>
+          <td class="text-center"> 118000</td>
+          <td class="text-center">
+            <input type="button" class="select-btn" data-id="5" data-product="MSI PRO B650-S WIFI AM5 AMD B650...."
+              data-price=" 118000" value="+ SELECT" />
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+  <div class="slide-form" id="slideForm">
+    <h3 class="text-center">Customize Your PC</h3>
+    <div class="table-responsive">
+      <table class="table table-borderless" id="slideForm_table">
+        <thead>
+          <tr>
+            <th style="width: 10%" class="align-middle" scope="col">
+              Component
+            </th>
+            <th style="width: 60%" class="align-middle" scope="col">
+              Selected Product
+            </th>
+            <th style="width: 10%;display: none;" class="align-middle" scope="col">
+              Unit Price
+            </th>
+            <th style="width: 10%;display: none;" class="align-middle" scope="col">
+              QTY
+            </th>
+            <th style="width: 10%;display: none;" class="align-middle" scope="col">
+              Price
+            </th>
+            <th style="width: 10%;display: none;" class="align-middle" scope="col">
+              Delete
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="width: 20%" class="align-middle">
+              <div class="component-icon">⚙️</div>
+              <span>CPU</span>
+            </td>
+            <td style="width: 80%" class="align-middle">
+              <span id="selected_product"><a id="cpu_btn" class="btn btn-dark cpu_btn">+ Select</a></span>
+              <span id="cpu_text"></span>
+            </td>
+            <td id="unit_price_cpu"></td>
+            <td class="qty_cpu"></td>
+            <td id="price_cpu"></td>
+            <td id="delete_btn_cpu"></td>
+          </tr>
+          <tr>
+            <td style="width: 20%" class="align-middle">
+              <div class="component-icon">🖥️</div>
+              <span class="align-middle">MotherBoard</span>
+            </td>
+            <td style="width: 20%" class="align-middle">
+              <span id="selected_product"><a id="mb_btn" class="btn btn-dark mb_btn">+ Select</a></span>
+              <span id="mb_text"></span>
+            </td>
+            <td id="unit_price_mb"></td>
+            <td class="qty_mb"></td>
+            <td id="price_mb"></td>
+            <td id="delete_btn_mb"></td>
+          </tr>
+          <tr>
+            <td style="width: 20%" class="align-middle">
+              <div class="component-icon">🧠</div>
+              <span class="align-middle">Memory</span>
+            </td>
+            <td style="width: 20%" class="align-middle">
+              <span id="selected_product"><button class="btn btn-dark">+
+                  Select</button></span>
+            </td>
+            <td id="unit_price_memory"></td>
+            <td id="qty_memory"></td>
+            <td id="delete_btn_memory"></td>
+          </tr>
+          <tr>
+            <td style="width: 20%" class="align-middle">
+              <div class="component-icon">🎮</div>
+              <span class="align-middle">Video Cards</span>
+            </td>
+            <td style="width: 20%" class="align-middle">
+              <span id="selected_product"><button class="btn btn-dark">+
+                  Select</button></span>
+            </td>
+            <td id="unit_price_vc"></td>
+            <td id="qty_vc"></td>
+            <td id="delete_btn_vc"></td>
+          </tr>
+          <tr>
+            <td style="width: 20%" class="align-middle">
+              <div class="component-icon">🖥️</div>
+              <span class="align-middle">Case</span>
+            </td>
+            <td style="width: 20%" class="align-middle">
+              <span id="selected_product"><button class="btn btn-dark">+
+                  Select</button></span>
+            </td>
+            <td id="unit_price_case"></td>
+            <td id="qty_case"></td>
+            <td id="delete_btn_case"></td>
+          </tr>
+          <tr>
+            <td style="width: 20%" class="align-middle">
+              <div class="component-icon">🔋</div>
+              <span class="align-middle">Power Supply</span>
+            </td>
+            <td style="width: 20%" class="align-middle">
+              <span id="selected_product"><button class="btn btn-dark">+
+                  Select</button></span>
+            </td>
+            <td id="unit_price_ps"></td>
+            <td id="qty_ps"></td>
+            <td id="delete_btn_ps"></td>
+          </tr>
+          <tr>
+            <td style="width: 20%" class="align-middle">
+              <div class="component-icon">💾</div>
+              <span class="align-middle">Storages</span>
+            </td>
+            <td style="width: 20%" class="align-middle">
+              <span id="selected_product"><button class="btn btn-dark">+
+                  Select</button></span>
+            </td>
+            <td id="unit_price_str"></td>
+            <td id="qty_str"></td>
+            <td id="delete_btn_str"></td>
+          </tr>
+          <tr>
+            <td style="width: 20%" class="align-middle">
+              <div class="component-icon">❄️</div>
+              <span class="align-middle">CPU Cooler</span>
+            </td>
+            <td style="width: 20%" class="align-middle">
+              <span id="selected_product"><button class="btn btn-dark">+
+                  Select</button></span>
+            </td>
+            <td id="unit_price_cooler"></td>
+            <td id="qty_cooler"></td>
+            <td id="delete_btn_cooler"></td>
+          </tr>
+          <tr>
+            <td style="width: 20%" class="align-middle">
+              <div class="component-icon">⚙️</div>
+              <span class="align-middle">Operating System</span>
+            </td>
+            <td style="width: 20%" class="align-middle">
+              <span id="selected_product"><button class="btn btn-dark">+
+                  Select</button></span>
+            </td>
+            <td id="unit_price_os"></td>
+            <td id="qty_os"></td>
+            <td id="delete_btn_os"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+        <input type="submit" id="cart_btn" class="btn btn-success cart_btn" value="Add to cart">
+        <script>
+        $(document).ready(function () {
+//   $("#mb_table").css("display", "none");
+  
+  $('.cart_btn').on('click', function () {
+    alert('Successfully Added to cart');
+    $('.cart_btn').attr('disabled', true);
+
+    document.getElementById("cpu_text").innerHTML = '<span id="selected_product"><a id="cpu_btn" class="btn btn-dark cpu_btn">+ Select</a></span>';
+    document.getElementById("unit_price_cpu").innerHTML = '';
+    document.getElementById('price_cpu').innerHTML = '';
+    document.querySelector(".qty_cpu").innerHTML = '';
+    document.getElementById("delete_btn_cpu").innerHTML = '';
+
+    document.getElementById("mb_text").innerHTML = '<span id="selected_product"><a id="mb_btn" class="btn btn-dark mb_btn">+ Select</a></span>';
+    document.getElementById("unit_price_mb").innerHTML = '';
+    document.getElementById('price_mb').innerHTML = '';
+    document.querySelector(".qty_mb").innerHTML = '';
+    document.getElementById("delete_btn_mb").innerHTML = '';
+
+    });
+  });
+        </script>
+
+    <div class="payment-options">
+      <!-- <span>Pay by:</span> -->
+      <a href="#"><img src="Assets/Images/visa.png" alt="Visa"></a>
+      <a href="#"><img src="Assets/Images/Mastercard_new_logo-1200x865.webp" alt="MasterCard"></a>
+      <a href="#"><img src="Assets/Images/amer.png" alt="American Express"></a>
+      <a href="#"><img src="Assets/Images/paypal.webp" alt="PayPal"></a>
+    </div>
+  </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

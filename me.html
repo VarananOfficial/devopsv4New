@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildaPC - Your Custom PC Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>BuildaPC</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Components</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for components...">
+                <button onclick="searchProducts()">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Build Your Dream PC!</h2>
+                <p>All components available for your custom build. Order now!</p>
+                <button onclick="shopNow()">Shop Now</button>
+            </div>
+        </section>
+
+        <section class="products">
+            <div class="container">
+                <h2>Popular Components</h2>
+                <div class="product-list">
+                    <!-- Example Product Item -->
+                    <div class="product-item">
+                        <img src="images\products\mother\12.jpg" alt="Product 1">
+                        <h3>Processor</h3>
+                        <p>$150</p>
+                        <button onclick="addToCart('Processor', 150)">Add to Cart</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images\products\mouse\9.jpg" alt="Product 2">
+                        <h3>Graphics Card</h3>
+                        <p>$300</p>
+                        <button onclick="addToCart('Graphics Card', 300)">Add to Cart</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images\products\pro\11.jpg" alt="Product 3">
+                        <h3>RAM</h3>
+                        <p>$80</p>
+                        <button onclick="addToCart('RAM', 80)">Add to Cart</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images\products\ram\1.jpg" alt="Product 4">
+                        <h3>SSD</h3>
+                        <p>$100</p>
+                        <button onclick="addToCart('SSD', 100)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="hero">
+        <div class="container">
+    <h2>Choose Your Components</h2>
+    <div class="container">
+        
+        <div class="products-grid" id="products-grid">
+            <!-- Products will be inserted here by JavaScript -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productsGrid = document.getElementById('products-grid');
+        
+            // Define product data
+            const products = [
+                { id: 1, type: 'CPU', name: 'Intel Core i9', image: "C:\Users\ADMIN\Music\mhy\images\pc.png" },
+                { id: 2, type: 'GPU', name: 'NVIDIA RTX 3090', image: 'images\vvv.webp' },
+                { id: 3, type: 'Motherboard', name: 'ASUS ROG', image: 'mb1.png' },
+                { id: 4, type: 'RAM', name: 'Corsair Vengeance', image: 'ram1.png' },
+                { id: 5, type: 'Storage', name: 'Samsung SSD', image: 'ssd1.png' },
+                { id: 6, type: 'Power Supply', name: 'EVGA 750W', image: 'psu1.png' },
+                { id: 7, type: 'Case', name: 'NZXT H510', image: 'case1.png' },
+                { id: 8, type: 'Cooler', name: 'Cooler Master', image: 'cooler1.png' },
+                { id: 9, type: 'Monitor', name: 'Dell 27"', image: 'monitor1.png' },
+                { id: 10, type: 'Keyboard', name: 'Logitech G Pro', image: 'keyboard1.png' },
+            ];
+        
+            // Create product elements
+            products.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
+        
+                const productImage = document.createElement('img');
+                productImage.src = product.image;
+                productImage.alt = product.name;
+        
+                const productName = document.createElement('h3');
+                productName.textContent = product.name;
+        
+                const productType = document.createElement('p');
+                productType.textContent = product.type;
+        
+                productElement.appendChild(productImage);
+                productElement.appendChild(productName);
+                productElement.appendChild(productType);
+        
+                productsGrid.appendChild(productElement);
+            });
+        });
+        
+    </script>
+</div>
+</section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 BuildaPC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+    function shopNow() {
+        alert("Redirecting to shop page!");
+        // Code to redirect to shop page
+        window.location.href = '#';
+    }
+    
+    function addToCart(product, price) {
+        alert(`${product} added to cart at $${price}`);
+        // Code to add the product to the cart
+    }
+</script>
+</body>
+</html>

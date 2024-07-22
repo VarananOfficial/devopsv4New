@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildaPC - Your Custom PC Builder</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/colors1.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+</head>
+
+<body id="default_theme" class="it_serv_shopping_cart it_checkout checkout_page">
+  <!-- Header -->
+
+  <div class="header_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <div class="logo">
+            <a href="it_home.html">
+              <img src="lanka.png" alt="logo" />
+            </a>
+          </div>
+        </div>
+        <div class="menu_side">
+          <div id="navbar_menu">
+            <ul class="first-ul">
+              <li><a class="active" href="it_home.html">Home</a></li>
+              <li><a href="it_about.html">About Us</a></li>
+              <li><a href="it_buildpc.html">Build Your PC</a></li>
+              <li><a href="it_products.html">Products</a></li>
+              <li><a href="it_laptops.html">Laptops</a></li>
+              <li><a href="it_contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="hm-minicart">
+            <a href="it_cart.html" class="hm-minicart-trigger">
+              <span class="item-icon">
+                <i class="fa fa-shopping-cart"></i>
+              </span>
+              <span class="item-text">
+                Cart <span class="cart-item-count">3</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="row my-4">
+          <div class="col-md-4">
+            <div class="component-card">
+              <h5>Entry Level</h5>
+              <p>Sub LKR 1.2K</p>
+              <img src="Assets/Images/s-l1200.jpg" alt="Entry Level" class="img-fluid">
+              <div class="customize-btn">
+                <button class="btn btn-primary">Build it with Intel</button>
+                <button class="btn btn-secondary">Build it with AMD</button>
+              </div>
+              <button class="btn btn-warning mt-2">View Pre-built</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="component-card">
+              <h5>Mainstream</h5>
+              <p>Sub LKR 2.0K</p>
+              <img src="Assets/Images/mod3-black_low-down-1000-min_3.jpg" alt="Mainstream" class="img-fluid">
+              <div class="customize-btn">
+                <button class="btn btn-primary">Build it with Intel</button>
+                <button class="btn btn-secondary">Build it with AMD</button>
+              </div>
+              <button class="btn btn-warning mt-2">View Pre-built</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="component-card">
+              <h5>Enthusiast</h5>
+              <p>Over LKR 2.0K</p>
+              <img src="Assets/Images/Transformer_1.jpg" alt="Enthusiast" class="img-fluid">
+              <div class="customize-btn">
+                <button class="btn btn-primary">Build it with Intel</button>
+                <button class="btn btn-secondary">Build it with AMD</button>
+              </div>
+              <button class="btn btn-warning mt-2">View Pre-built</button>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <h2>Build Your Dream PC!</h2><br>
+
+        <p>All components available for your custom build. Order now!</p>
+
+      </div>
+    </section>
+
+  </main>
+  <section class="hero">
+    <div class="container">
+      <h2>Choose Your Components</h2>
+      <div class="container">
+        <div class="products-grid" id="products-grid">
+        </div>
+      </div>
+      <script src="script.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const productsGrid = document.getElementById('products-grid');
+
+          // Define product data
+          const products = [
+            { id: 5, type: 'Processor', image: "images/products/pro/13.jpg" },
+            { id: 3, type: 'Motherboard', image: "images/products/mother/13.jpg" },
+            { id: 1, type: 'Grapic card', image: "images/grapic card.png" },
+            { id: 2, type: 'Mouse', image: "images/cpu/New folder (2)/mouse/41REul6btoL-500x500-1-300x300.jpg" },
+            { id: 4, type: 'RAM', image: "images/products/ram/8.jpg" },
+            { id: 6, type: 'Power Supply', image: "images/power sup.png" },
+            { id: 7, type: 'Case', image: "images/products/case.jpg" },
+            { id: 8, type: 'Cooler', image: "images/coolerrrr.png" },
+            { id: 9, type: 'Monitor', image: "images/cpu/New folder (2)/moni/1-1-300x300.jpg" },
+            { id: 10, type: 'Keyboard', image: "images/products/key/7.jpg" },
+          ];
+
+          // Create product elements
+          products.forEach(product => {
+            // Create a div element for the product
+            const productElement = document.createElement('div');
+            productElement.classList.add('product');
+
+            // Create an anchor element to wrap around the product div
+            const productLink = document.createElement('a');
+            productLink.href = '/Products.html';  // Set your href attribute here
+            productLink.classList.add('product-link');  // Optionally add a class to the anchor element
+
+            // Create an img element for the product image
+            const productImage = document.createElement('img');
+            productImage.src = product.image;
+            productImage.alt = product.name;
+
+            // Create an h3 element for the product name
+            const productName = document.createElement('h3');
+            productName.textContent = product.name;
+
+            // Create a p element for the product type
+            const productType = document.createElement('p');
+            productType.textContent = product.type;
+
+            // Append the image, name, and type elements to the product div
+            productLink.appendChild(productImage);
+            productLink.appendChild(productName);
+            productLink.appendChild(productType);
+
+            // Append the anchor element (productLink) to the product div (productElement)
+            productElement.appendChild(productLink);
+
+            // Append the product div to the products grid (assuming productsGrid is already defined somewhere)
+            productsGrid.appendChild(productElement);
+          });
+        });
+
+      </script>
+    </div>
+  </section>
+
+  <script src="scripts.js"></script>
+  <script>
+    function shopNow() {
+      alert("Redirecting to shop page!");
+      window.location.href = '#';
+    }
+    function addToCart(product, price) {
+      alert(`${product} added to cart at $${price}`);
+    }
+  </script>
+
+  <!-- section -->
+  <div class="container-fuild" style="margin: 50px;">
+    <div class="col-md-3">
+      <div class="side_bar">
+        <div class="side_bar_blog">
+          <h4>GET A QUOTE</h4>
+          <p>Buy your products.</p>
+          <a class="btn sqaure_bt" href="it_error.html">GET A QUOTE</a>
+        </div>
+        <div class="side_bar_blog">
+          <h4>OUR SERVICE</h4>
+          <div class="categary">
+            <ul>
+              <li>
+                <a href="it_error.html"><i class="fa fa-angle-right"></i> Build Pc</a>
+              </li>
+              <li>
+                <a href="it_error.html"><i class="fa fa-angle-right"></i> Computer repair</a>
+              </li>
+              <li>
+                <a href="it_error.html"><i class="fa fa-angle-right"></i>Cyber Security
+                  Solutions</a>
+              </li>
+              <li>
+                <a href="it_error.html"><i class="fa fa-angle-right"></i> Security &
+                  Surveillance Solutions</a>
+              </li>
+              <li>
+                <a href="it_error.html"><i class="fa fa-angle-right"></i> Telecommunication
+                  Solutions</a>
+              </li>
+              <li>
+                <a href="it_error.html"><i class="fa fa-angle-right"></i> Network Management
+                  and Storage Solutions</a>
+              </li>
+              <li>
+                <a href="it_error.html"><i class="fa fa-angle-right"></i> Technology
+                  Consultation Solutions</a>
+              </li>
+              <li>
+                <a href="it_error.html"><i class="fa fa-angle-right"></i> Power and Energy
+                  Solutions</a>
+              </li>
+              <li>
+                <a href="it_error.html"><i class="fa fa-angle-right"></i> Point of Sale (POS)
+                  Solutions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end section -->
+
+
+  <!-- footer -->
+  <footer>
+    <div class="container-fuild">
+
+      <div class="cprt">
+        <p></p>
+      </div>
+    </div>
+  </footer>
+  <!-- end footer -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const userNameElement = document.getElementById("userName");
+
+      userNameElement.addEventListener("click", function () {
+        const isConfirmed = confirm("Are you sure you want to sign out?");
+        if (isConfirmed) {
+          window.location.href = "login.html";
+        }
+      });
+    });
+    function showPanel() {
+      var panel = document.getElementById("productPanel");
+      if (panel.style.display === "none" || panel.style.display === "") {
+        panel.style.display = "block";
+      } else {
+        panel.style.display = "none";
+      }
+    }
+
+    function closePanel() {
+      var panel = document.getElementById("productPanel");
+      panel.style.display = "none";
+    }
+    function selectProduct(productName) {
+      alert("Selected: " + productName);
+      var panel = document.getElementById("productPanel");
+      panel.style.display = "none";
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>
